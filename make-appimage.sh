@@ -3,7 +3,7 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(pacman -Q pcsx-redux-git | awk '{print $2; exit}') # example command to get version of application here
+VERSION=$(pacman -Q pcsx-redux-git | awk '{print $2; exit}')
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.hook"
@@ -15,8 +15,6 @@ export DEPLOY_OPENGL=1
 
 # Deploy dependencies
 quick-sharun /usr/bin/pcsx-redux
-
-# Additional changes can be done in between here
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
