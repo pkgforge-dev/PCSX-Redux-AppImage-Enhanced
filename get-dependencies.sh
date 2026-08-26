@@ -11,6 +11,7 @@ pacman -Syu --noconfirm \
     ffmpeg \
     fmt  \
     glfw \
+    libbluray \
     libuv \
     sdl2
 
