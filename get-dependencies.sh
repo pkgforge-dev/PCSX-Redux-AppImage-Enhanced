@@ -8,10 +8,8 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     capstone \
-    ffmpeg \
     fmt  \
     glfw \
-    libbluray \
     libuv \
     sdl2
 
