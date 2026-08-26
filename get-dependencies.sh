@@ -38,8 +38,9 @@ git clone "$REPO" ./pcsx-redux
 echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
-mkdir -p ./AppDir/share/pcsx-redux
+mkdir -p ./AppDir/share/pcsx-redux/resources
 cd ./pcsx-redux
 make -j$(nproc)
 mv -v pcsx-redux ../AppDir/bin
 mv -v i18n ../AppDir/share/pcsx-redux
+wget -O ../AppDir/share/pcsx-redux/resources/gamecontrollerdb.txt https://raw.githubusercontent.com/mdqinc/SDL_GameControllerDB/master/gamecontrollerdb.txt
