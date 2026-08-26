@@ -6,14 +6,19 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm sdl2
+pacman -Syu --noconfirm \
+    capstone \
+    fmt  \
+    glfw \
+    libuv \
+    sdl2
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano ffmpeg-mini libdecor-mini
 
 # Comment this out if you need an AUR package
-make-aur-package pcsx-redux-git
+#make-aur-package pcsx-redux-git
 
 # If the application needs to be manually built that has to be done down here
 
@@ -24,3 +29,14 @@ make-aur-package pcsx-redux-git
 # else
 # 	regular build steps
 # fi
+
+echo "Building PCSX-Redux..."
+echo "---------------------------------------------------------------"
+REPO="https://github.com/grumpycoders/pcsx-redux"
+VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
+git clone "$REPO" ./pcsx-redux
+echo "$VERSION" > ~/version
+
+mkdir -p ./AppDir/bin
+cd ./pcsx-redux
+make -j$(nproc)
