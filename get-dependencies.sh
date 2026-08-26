@@ -40,3 +40,4 @@ echo "$VERSION" > ~/version
 mkdir -p ./AppDir/bin
 cd ./pcsx-redux
 make -j$(nproc)
+mv -v pcsx-redux ../AppDir/bin
