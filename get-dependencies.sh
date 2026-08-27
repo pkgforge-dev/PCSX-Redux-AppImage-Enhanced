@@ -34,7 +34,7 @@ echo "Building PCSX-Redux..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/grumpycoders/pcsx-redux"
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-git clone "$REPO" ./pcsx-redux
+git clone --recursive --depth 1 "$REPO" ./pcsx-redux
 echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
