@@ -8,9 +8,9 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     capstone \
-    fmt  \
-    glfw \
-    libuv \
+    fmt      \
+    glfw     \
+    libuv    \
     sdl2
 
 echo "Installing debloated packages..."
