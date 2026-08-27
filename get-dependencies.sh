@@ -39,8 +39,10 @@ echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
 mkdir -p ./AppDir/share/pcsx-redux/resources
+mkdir -p ./AppDir/share/pcsx-redux/fonts
 cd ./pcsx-redux
 make -j$(nproc)
 mv -v pcsx-redux ../AppDir/bin
 mv -v i18n ../AppDir/share/pcsx-redux
+mv -v third_party/noto/*.ttf third_party/noto/*.otf ../AppDir/share/pcsx-redux/fonts
 wget -O ../AppDir/share/pcsx-redux/resources/gamecontrollerdb.txt https://raw.githubusercontent.com/mdqinc/SDL_GameControllerDB/master/gamecontrollerdb.txt
